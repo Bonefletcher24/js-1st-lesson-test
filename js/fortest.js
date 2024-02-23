@@ -782,3 +782,154 @@ if (daysUntilDeadline === 0) console.log("Today");
 else if (daysUntilDeadline === 1) console.log("Tomorrow");
 else if (daysUntilDeadline === 2) console.log("The day after tomorrow");
 else console.log("Date in the future");
+
+
+
+//============ARRAYS============
+//              0        1         2
+let fruits = ["apple", "mango", "banana"];
+console.log(fruits[0]);  // счет начинается с 0
+console.log(fruits[1]);
+console.log(fruits[2]);
+
+console.log(fruits.length);  //3 - в length счет начинается с 1 (1,2,3)
+
+console.log(fruits[fruits.length - 1]);  //2 - последний индекс(banana)
+
+fruits[1] = "kiwi";
+console.log(fruits[1]); //ответ изменится с манго на киви.
+
+------------
+//Last element's index
+const clients = ["Mango", "Poly", "Ajax"];
+const lastElementIndex = clients.length - 1;
+console.log(lastElementIndex); // 2
+console.log(clients[lastElementIndex]); // "Ajax"
+
+// 2D array
+
+const heroes = [
+  //    0         1          2
+  ["superman", "batman", 'cat girl'],              // 0
+  ['robert cop', 'thor', 'ironman'],               // 1
+  ['robert cop', 'captain barbel', 'kamen rider'], // 2
+]
+// сначала по горизонтали, потом по вертикали
+console.log(heroes[1][2]); //ironman
+console.log(heroes[2][1]); //captain barbel
+
+
+//Array Iteration
+
+const clients = ['Mango', 'Ajax', 'Poly']; //...1000
+
+for(let i = 0, i < clients.length; i++) {
+  console.log(clients[i]);
+}
+--------------------
+const clients = ['Mango', 'Ajax', 'Poly', 'Kim']; //...1000
+
+for(let i = 0, i < clients.length; i++) {
+  if (clients[i] === 'Kim')
+  console.log('Found it');
+
+}
+
+--------------------
+const clients = ["Mango", "Ajax", "Poly"];
+
+for (let i = 0; i < clients.length; i += 1) {
+  console.log(clients[i]);
+}
+
+
+//for...of loop
+for (const client of clients) {        //for singular of plural
+  console.log(client);
+}
+
+//continue
+const numbers = [1, 3, 14, 18, 4, 7, 29, 6, 34];
+const threshold = 15;
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] < threshold) {
+    continue;  //если тут break то операция приостанавливается
+  }
+
+  console.log(`Numbers is greater than ${threshold}: ${numbers}`)
+}
+
+//SPLIT and JOIN
+//split
+let message = "hello";
+console.log(message.split(""));  // из-за "" ответ будет "h","e","l","l","0"
+
+let message = "hello world";
+console.log(message.split(" "));  //"hello" "world"
+
+//join
+console.log(message.join("-"));  // hello-world
+
+//indexOf() - указывает на индекс номер товара, если его нет в списке, покажет -1
+
+const numbers = [1, 3, 14, 18, 4, 7, 29, 6, 34];
+console.log(numbers.indexOf(29)); // 6
+
+//includes() -если товар есть в списке покажет TRUE, если нет FALSE 
+
+console.log(numbers.includes(29)); // true
+
+
+const fruit = "apple";
+
+if (fruit === "apple" || fruit === "strawberry") {
+  console.log("It is a red fruit!");
+}
+
+------------
+// Make an array of options
+const redFruits = ["apple", "strawberry", "cherry", "cranberries"];
+const fruit = "cherry";
+// Check if the element exists
+const hasFruit = redFruits.includes(fruit);
+
+if (hasFruit) {
+  console.log(`${fruit} is a red fruit!`);
+}
+---------------
+
+//push - добавляет в начале
+//pop - удаляет с конца
+
+//shift - удаляет в начале
+//unshift - добавляет в начале
+
+//SLICE
+let cars = ["honda","toyota","bmw","tesla","suzuki"]
+cars = cars.slice(0,3); // от 0 до 2
+                    //  0     1     2     (3-1)
+console.log(cars); // honda,toyota,bmw
+
+---------------
+                           3              кусок от 3 до 4
+cars = cars.slice(3); // tesla, suzuki
+
+//SPLICE
+const scores = [1, 2, 3, 4, 5];
+
+// Remove three array elements, starting with the first one (index 0)
+const deletedScores = scores.splice(0, 3);
+
+// The scores array now contains two elements
+console.log(scores); // [4, 5]
+-------------------
+const colors = ["red", "green", "blue"];
+
+colors.splice(2, 0, "purple");
+console.log(colors); // ["red", "green", "purple", "blue"]
+.-----------------------------
+const colors = ["red", "green", "blue"];
+
+colors.splice(1, 0, "yellow", "pink");
+console.log(colors); // ["red", "yellow", "pink", "green", "blue"]
+
